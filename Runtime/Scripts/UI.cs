@@ -38,7 +38,7 @@ namespace SpriteUI
             if (!Mathf.Approximately(_size, size))
             {
                 _size = size;
-                _scale = _size / DefaultSize;
+                _scale = Mathf.Abs(_size / DefaultSize);
                 
                 // Prevent NaN
                 if (_scale <= 0.0001f)
