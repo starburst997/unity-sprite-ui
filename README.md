@@ -13,6 +13,7 @@ Add Sprites and anchor them using `RectTransform`.
 - Simple Click w/ callbacks
 - Enable / Disable based on screen size (min / max)
 - Popups
+- Text Inputs
 
 ## License
 MIT License
