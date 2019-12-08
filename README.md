@@ -7,8 +7,12 @@ Add `UI` MonoBehaviour to a root GameObject, the `RectTransform` will follow the
 Add Sprites and anchor them using `RectTransform`.
 
 ## TODO
+- ~~Size should stay the same despite camera zoom in / out~~
 - Scale helper (keep same DPI)
 - Background (fill maintaining aspect ratio)
 - Simple Click w/ callbacks
 - Enable / Disable based on screen size (min / max)
 - Popups
+
+## License
+MIT License

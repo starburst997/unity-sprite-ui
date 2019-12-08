@@ -7,9 +7,14 @@ namespace SpriteUI
     [RequireComponent(typeof(RectTransform))]
     public class UI : MonoBehaviour
     {
+        public float DefaultSize = 5f;
+        
         private Camera _camera;
         private RectTransform _rect;
 
+        private float _size;
+        private float _scale;
+        
         private float _width;
         private float _height;
         
@@ -29,7 +34,22 @@ namespace SpriteUI
 
         private void Update()
         {
-            float height = _camera.orthographicSize * 2f;
+            float size = _camera.orthographicSize;
+            if (!Mathf.Approximately(_size, size))
+            {
+                _size = size;
+                _scale = _size / DefaultSize;
+                
+                // Prevent NaN
+                if (_scale <= 0.0001f)
+                {
+                    _scale = 0.0001f;
+                }
+                
+                _rect.localScale = new Vector3(_scale, _scale, 1f);
+            }
+            
+            float height = size * 2f / _scale;
             float width = height * _camera.aspect;
 
             if (!Mathf.Approximately(_width, width) || !Mathf.Approximately(_height, height))
